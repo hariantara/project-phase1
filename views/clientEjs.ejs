@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 40%;
+    }
+
+    td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #dddddd;
+    }
+  </style>
+  <title>Client</title>
+  </head>
+  <body>
+  <center><h3>Client Data</h3><center><br>
+  <br>
+  <form action="/client" method="POST">
+  <center>
+  <table>
+    <tr>
+      <th><center>ID</center></th>
+      <th><center>Nama</center></th>
+      <th><center>Phone</center></th>
+      <th><center>Alamat</center></th>
+      <th><center>Email<center></th>
+      <th colspan='3'><center>Option</center></th>
+    </tr>
+    <% dataClient.forEach(clients =>{ %>
+    <tr>
+      <td><%=clients.id%></td>
+      <td><%=clients.nama%></td>
+      <td><%=clients.telp%></td>
+      <td><%=clients.alamat%></td>
+      <td><%=clients.email%></td>
+      <td><a href="client/detail"><button type="button" class="btn btn-primary" name="detail">Detail Order</button></a></td>
+
+      </tr>
+      <%})%>
+    </table>
+  </center>
+    </form>
+  </body>
+</html>

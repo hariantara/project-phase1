@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Client</title>
+  </head>
+  <body>
+  <center>
+    <h2>Edit Client</h2><br><br>
+    <form action="/client/edit/<%=clientEdit.id%>" method="POST">
+    Nama:<br>
+    <input type="text" name="namaEjs" value="<%=clientEdit.nama%>">
+    <br><br>
+    Phone:<br>
+    <input type="text" name="phoneEjs" value="<%=clientEdit.telp%>">
+    <br><br>
+    Alamat:<br>
+    <input type="text" name="alamatEjs" value="<%=clientEdit.alamat%>">
+    <br><br>
+    Email:<br>
+    <input type="text" name="emailEjs" value="<%=clientEdit.email%>">
+    <br><br>
+    <br><br>
+    <input type="submit" value="Submit">
+  </form>
+  </center>
+  </body>
+</html>

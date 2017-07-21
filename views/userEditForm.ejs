@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>User</title>
+  </head>
+  <body>
+  <center>
+    <h2>Edit User</h2><br><br>
+    <form action="/user/edit/<%=userEdit.id%>" method="POST">
+    Nama:<br>
+    <input type="text" name="namaEjs" value="<%=userEdit.nama%>">
+    <br><br>
+    Phone:<br>
+    <input type="text" name="phoneEjs" value="<%=userEdit.telp%>">
+    <br><br>
+    Alamat:<br>
+    <input type="text" name="alamatEjs" value="<%=userEdit.alamat%>">
+    <br><br>
+    Email:<br>
+    <input type="text" name="emailEjs" value="<%=userEdit.email%>">
+    <br><br>
+    <br><br>
+    <input type="submit" value="Submit">
+  </form>
+  </center>
+  </body>
+</html>

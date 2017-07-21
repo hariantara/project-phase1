@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+    table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 50%;
+    }
+
+    td,
+    th {
+      border: 1px solid #dddddd;
+      text-align: center;
+      padding: 8px;
+    }
+
+    tr:nth-child(even) {
+      background-color: #dddddd;
+    }
+  </style>
+</head>
+
+<body>
+  <center>
+    <h1>Order</h1><br>
+
+    <form action="/user/order/<%=user%>" method="POST">
+      <br><br>
+      <!-- TABLE -->
+
+      <table>
+        <tr>
+          <th>Id</th>
+          <th>Stuff</th>
+          <th>Quantity</th>
+          <th>Price/pcs</th>
+          <th>Total</th>
+          <th>Option</th>
+
+        </tr>
+        <% var totalSemua = 0%>
+        <%allData.forEach(data =>{%>
+        <tr>
+            <td><%=data.id%></td>
+            <td><%=data.Stuff.type%></td>
+            <td><%=data.quantity%></td>
+            <td><%=data.Stuff.price%></td>
+            <td><%=data.quantity * data.Stuff.price%></td>
+            <%var a = data.quantity * data.Stuff.price%>
+            <%totalSemua += a %>
+            <td><a href="/user/detail/delete/<%=data.id%>">Hapus</a></td>
+        </tr>
+        <%})%>
+        <td colspan="4"><p align="center"><b>Total</b></p></td>
+        <td><p align='center'><b><%=totalSemua%></b></p></td>
+      </table>
+      <!-- DROP DOWN -->
+      <br><br>
+      Pakaian:<br>
+      <select name="typeStuff"  >
+        <% allStuff.forEach(data =>{%>
+        <option value="<%=data.id%>"><%=data.type%></option>
+        <%})%>
+      </select><br>
+
+      Quantity:<br>
+      <input type="number" name="quantity" value=""></input>
+
+      <br><br>
+
+      <input type="submit" class="btn btn-primary" name="" value="Order"></input>
+
+    </form>
+  </center>
+</body>
+
+</html>

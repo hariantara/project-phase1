@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+      table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 50%;
+      }
+
+      td,
+      th {
+        border: 1px solid #dddddd;
+        text-align: center;
+        padding: 8px;
+      }
+
+      tr:nth-child(even) {
+        background-color: #dddddd;
+      }
+    </style>
+  <title>List User</title>
+  </head>
+  <body>
+    <br><br>
+  <center><h1>List User</h1><center><br>
+  <br><br>
+  <form action="/admin/listuser" method="POST">
+  <center>
+  <table>
+    <tr>
+      <th><center>ID</center></th>
+      <th><center>Nama</center></th>
+      <th><center>Phone</center></th>
+      <th><center>Alamat</center></th>
+      <th><center>Email<center></th>
+      <th><center>Detail<center></th>
+
+    </tr>
+<% userData.forEach(data =>{ %>
+    <tr>
+      <td><%=data.id%></td>
+      <td><%=data.nama%></td>
+      <td><%=data.telp%></td>
+      <td><%=data.alamat%></td>
+      <td><%=data.email%></td>
+      <td><a href="/admin/listuser/<%=data.id%> "><button type="button" class="btn btn-success" name="Edit">Detail</button></a></td>
+
+      </tr>
+<%  }) %>
+    </table>
+  </center>
+    </form>
+  </body>
+</html>

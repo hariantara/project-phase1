@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+      table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 50%;
+      }
+
+      td,
+      th {
+        border: 1px solid #dddddd;
+        text-align: center;
+        padding: 8px;
+      }
+
+      tr:nth-child(even) {
+        background-color: #dddddd;
+      }
+    </style>
+  <title>Detail Order</title>
+  </head>
+
+  <body>
+  <center><h3>Detail Order</h3><center><br>
+
+  <br><br>
+  <form action="/detailorder" method="POST">
+  <center>
+
+    <table>
+      <tr>
+
+        <th>Stuff</th>
+        <th>Quantity</th>
+        <th>Price/pcs</th>
+        <th>Total</th>
+
+
+      </tr>
+      <% var totalSemua = 0%>
+      <%allData.forEach(data =>{%>
+      <tr>
+
+          <td><%=data.Stuff.type%></td>
+          <td><%=data.quantity%></td>
+          <td><%=data.Stuff.price%></td>
+          <td><%=data.quantity * data.Stuff.price%></td>
+          <%var a = data.quantity * data.Stuff.price%>
+          <%totalSemua += a %>
+
+      </tr>
+      <%})%>
+      <td colspan="3"><b>Total</b></td>
+      <td colspan="1" ><p align='center'><b>IDR <%=totalSemua%></b></p></td>
+
+    </table>
+  </center>
+    </form>
+  </body>
+</html>

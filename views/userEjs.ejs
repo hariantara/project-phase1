@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+      table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 50%;
+      }
+      td,
+      th {
+        border: 1px solid #dddddd;
+        text-align: center;
+        padding: 8px;
+      }
+      tr:nth-child(even) {
+        background-color: #dddddd;
+      }
+    </style>
+  <title>User</title>
+  </head>
+  <body>
+  <center><h1>User Profile</h1><center><br>
+  <a href="/user/add"><button type="Submit" class="btn btn-primary" name="Add">Add New User</button></a>
+  <a href=""><button type="Submit" class="btn btn-danger" name="Add">Log Out</button></a>
+  <br><br>
+  <form action="/user" method="POST">
+  <center>
+  <table>
+    <tr>
+      <th><center>ID</center></th>
+      <th><center>Nama</center></th>
+      <th><center>Phone</center></th>
+      <th><center>Alamat</center></th>
+      <th><center>Email<center></th>
+      <th><center>Edit Profile</center></th>
+      <th><center>Order</center></th>
+      <th><center>Detail Order</center></th>
+      <th><center>Delete</center></th>
+    </tr>
+<% userData.forEach(data =>{ %>
+    <tr>
+      <td><%=data.id%></td>
+      <td><%=data.nama%></td>
+      <td><%=data.telp%></td>
+      <td><%=data.alamat%></td>
+      <td><%=data.email%></td>
+      <td><a href="/user/edit/<%=data.id%>"><button type="button" class="btn btn-warning" name="Edit">EDIT</button></a></td>
+      <td><a href="/user/order/<%=data.id%>"><button type="button" class="btn btn-primary" name="Edit">Order</button></a></td>
+      <td><a href="/user/detailorder/<%=data.id%>"><button type="button" class="btn btn-success" name="Edit">Detail</button></a></td>
+      <td><a href="/user/delete/<%=data.id%>"><button type="button" class="btn btn-danger" name="Edit">Delete</button></a></td>
+
+      </tr>
+<%  }) %>
+    </table>
+  </center>
+    </form>
+  </body>
+</html>

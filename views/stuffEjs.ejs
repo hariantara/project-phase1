@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<style>
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 70%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+</style>
+</head>
+<body>
+<center>
+<h1>Laundry Price List</h1><br>
+<a href="stuff/add"><button type="button" class="btn btn-primary" name="button">Add Stuff</button></a>
+
+<br><br>
+<table>
+  <tr>
+    <th>Id</th>
+    <th>Type</th>
+    <th>Price</th>
+    <th>Edit</th>
+    <th>Hapus</th>
+  </tr>
+  <%dataStuff.forEach(stuff => {%>
+  <tr>
+      <td><%=stuff.id%></td>
+      <td><%=stuff.type%></td>
+      <td><%=stuff.price%></td>
+      <td><a href="stuff/edit/<%=stuff.id%>"><button type="submit" class="btn btn-default">Edit</button></td>
+      <td><a href="stuff/delete/<%=stuff.id%>"><button type="submit" class="btn btn-default">Hapus</button></td>
+  </tr>
+  <%})%>
+</table>
+</center>
+</body>
+</html>
